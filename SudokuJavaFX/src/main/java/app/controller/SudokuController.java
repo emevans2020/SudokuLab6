@@ -312,19 +312,24 @@ public class SudokuController implements Initializable {
 						Dragboard db = event.getDragboard();
 						boolean success = false;
 						Cell CellTo = (Cell) paneTarget.getCell();
-
+						
+						
 						//TODO: This is where you'll find mistakes.  
 						//		Keep track of mistakes... as an attribute of Sudoku... start the attribute
 						//		at zero, and expose a AddMistake(int) method in Sudoku to add the mistake
 						//		write a getter so you can the value
 						//		Might even have a max mistake attribute in eGameDifficulty (easy has 2 mistakes, medium 4, etc)
-						//		If the number of mistakes >= max mistakes, end the game
+						//		If the number of mistakes >= max mistakes, end the game							
+	
 						if (db.hasContent(myFormat)) {
 							Cell CellFrom = (Cell) db.getContent(myFormat);
-
+					
 							if (!s.isValidValue(CellTo.getiRow(), CellTo.getiCol(), CellFrom.getiCellValue())) {
+								s.AddMistake();
 								if (game.getShowHints()) {
-
+									if (s.getMistakes() >= MaxMistakes) {
+										
+									}
 								}
 
 							}

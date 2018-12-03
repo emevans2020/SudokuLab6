@@ -50,6 +50,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 
 	private eGameDifficulty eGameDifficulty;
 
+	private int mistakes;
 	/**
 	 * Sudoku - No-arg private constructor should set the eGameDifficulty to EASY by
 	 * default
@@ -60,6 +61,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 	private Sudoku() {
 		super();
 		this.eGameDifficulty = eGameDifficulty.EASY;
+		this.mistakes = 0;
 	}
 
 	/**
@@ -94,7 +96,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 		SetCells();
 		fillRemaining(this.cells.get(Objects.hash(0, iSqrtSize)));
 		RemoveCells();
-
+		
 	}
 
 	/**
@@ -180,7 +182,12 @@ public class Sudoku extends LatinSquare implements Serializable {
 
 		return false;
 	}
+	
+	public void AddMistake() {
+		this.mistakes += 1;
+	}
 
+	
 	/**
 	 * getiSize - the UI needs to know the size of the puzzle
 	 *
@@ -439,7 +446,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 	 * 
 	 * It's a LatinSquare If each region doesn't have duplicates If each element in
 	 * the first row of the puzzle is in each region of the puzzle At least one of
-	 * the elemnts is a zero
+	 * the elements is a zero
 	 * 
 	 * 
 	 * @version 1.2
@@ -495,7 +502,6 @@ public class Sudoku extends LatinSquare implements Serializable {
 		if (ContainsZero()) {
 			return false;
 		}
-
 		return true;
 	}
 
@@ -825,6 +831,10 @@ public class Sudoku extends LatinSquare implements Serializable {
 			return true;
 		else
 			return false;
+	}
+
+	public int getMistakes() {
+		return mistakes;
 	}
 
 	/**
