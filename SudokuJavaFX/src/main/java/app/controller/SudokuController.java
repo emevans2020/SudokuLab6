@@ -340,15 +340,21 @@ public class SudokuController implements Initializable {
 						//		write a getter so you can the value
 						//		Might even have a max mistake attribute in eGameDifficulty (easy has 2 mistakes, medium 4, etc)
 						//		If the number of mistakes >= max mistakes, end the game	
-						// keep track of the mistakes in the sudoku game, and end the game if either 
-						//they passed the threshold of mistakes... or they solve the puzzle. 
+						// 		keep track of the mistakes in the sudoku game, and end the game if either 
+						//		they passed the threshold of mistakes... or they solve the puzzle. 
 						
 						if (db.hasContent(myFormat)) {
 							Cell CellFrom = (Cell) db.getContent(myFormat);
 					
 							if (!s.isValidValue(CellTo.getiRow(), CellTo.getiCol(), CellFrom.getiCellValue())) {
 								s.AddMistake();
-								if (s.getMistakes() == eGameDifficulty.MaxMistakes) {
+								if (s.getMistakes() >= eGameDifficulty.MaxMistakes) {
+									
+								}
+								/** under this want to say they if solved the puzzle or not because no longer any empty spaces
+								 * 
+								 */
+								else if (s.ContainsZero()==false) {
 									
 								}
 								if (game.getShowHints()) {
