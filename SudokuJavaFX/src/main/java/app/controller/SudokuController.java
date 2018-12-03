@@ -88,7 +88,10 @@ public class SudokuController implements Initializable {
 		CreateSudokuInstance();
 		BuildGrids();
 	}
-	
+	/**
+	 * this button will close window completely when the 'end game' button is pushed
+	 * @param event
+	 */
 	@FXML
 	private void btnEndGame(ActionEvent event) {
 		System.exit(0);
