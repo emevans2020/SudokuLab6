@@ -8,7 +8,7 @@ public enum eGameDifficulty {
 
 	EASY(100), MEDIUM(500), HARD(1000);
 
-	private int MaxMistakes = 0;
+	public int MaxMistakes;
 	
 	private final int iDifficulty;
 
@@ -36,10 +36,6 @@ public enum eGameDifficulty {
 
 	private eGameDifficulty(int iDifficulty) {
 		this.iDifficulty = iDifficulty;
-	}
-
-	public int getMaxMistakes() {
-		return MaxMistakes;
 	}
 
 	public int getiDifficulty() {
