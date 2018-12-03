@@ -8,7 +8,7 @@ public enum eGameDifficulty {
 
 	EASY(100), MEDIUM(500), HARD(1000);
 
-	public int MaxMistakes;
+	public static int MaxMistakes;
 	
 	private final int iDifficulty;
 
@@ -16,10 +16,10 @@ public enum eGameDifficulty {
 	
 	
 	public int maxMistakes (int iDifficulty) {
-		if (getiDifficulty() <= 100) {
+		if (getiDifficulty() >= 100) {
 			this.MaxMistakes = 5;
 		}
-		else if (getiDifficulty() <= 500 && getiDifficulty() >100) {
+		else if (getiDifficulty() >= 500) {
 			this.MaxMistakes = 4;
 		}
 		else {

@@ -75,6 +75,7 @@ public class SudokuController implements Initializable {
 
 	}
 
+	
 	/**
 	 * btnStartGame - Fire this event when the 'start game' button is pushed
 	 * 
@@ -86,6 +87,11 @@ public class SudokuController implements Initializable {
 	private void btnStartGame(ActionEvent event) {
 		CreateSudokuInstance();
 		BuildGrids();
+	}
+	
+	@FXML
+	private void btnEndGame(ActionEvent event) {
+		System.exit(0);
 	}
 
 	/**
@@ -326,12 +332,15 @@ public class SudokuController implements Initializable {
 					
 							if (!s.isValidValue(CellTo.getiRow(), CellTo.getiCol(), CellFrom.getiCellValue())) {
 								s.AddMistake();
-								if (game.getShowHints()) {
-									if (s.getMistakes() >= MaxMistakes) {
-										
-									}
+								if (s.getMistakes() >= eGameDifficulty.MaxMistakes) {
+									
+									
 								}
-
+								if (game.getShowHints()) {
+									//TODO: This is where I want to keep track of how many zeroes remain in the puzzle
+									//once the number of zeros is zero, the puzzle is either solved or not
+									//show a message if puzzle is solved
+								}
 							}
 
 							//	This is the code that is actually taking the cell value from the drag-from 
