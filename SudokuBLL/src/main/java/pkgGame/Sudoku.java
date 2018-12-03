@@ -161,6 +161,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 
 	}
 
+	
 	/**
 	 * IsDifficultyMet - will return boolean if the given difficulty score meets the
 	 * game's difficulty
@@ -183,12 +184,29 @@ public class Sudoku extends LatinSquare implements Serializable {
 		return false;
 	}
 	
+	/** new method added to keep track of mistakes
+	 * 
+	 * @return
+	 */
 	public int AddMistake() {
 		this.mistakes += 1;
 		return this.mistakes;
 	}
 	
+	public boolean isgameOver(int getMistakes, int iDifficulty) {
+		if(eGameDifficulty.maxMistakes(iDifficulty) == getMistakes) {
+			return true;
+		} else
+			return false;
+	}
 	
+	public void GameOver() {
+		if(isgameOver(mistakes, eGameDifficulty.getiDifficulty()) == true) {
+			System.out.println("Game Over");
+			System.out.println("Press 'Start Over' to try again");
+		} 
+	}
+
 	/**
 	 * getiSize - the UI needs to know the size of the puzzle
 	 *
@@ -922,6 +940,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 		public void ShuffleValidValues() {
 			Collections.shuffle(lstValidValues);
 		}
+		
 
 		/**
 		 * 

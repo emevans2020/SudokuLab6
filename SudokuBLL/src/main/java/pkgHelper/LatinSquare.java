@@ -343,6 +343,7 @@ public class LatinSquare {
 		return false;
 
 	}
+	
 
 	/**
 	 * getPV - Return the collection of PuzzleViolations

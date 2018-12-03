@@ -77,7 +77,6 @@ public class SudokuController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 	}
-
 	
 	/**
 	 * btnStartGame - Fire this event when the 'start game' button is pushed
@@ -99,13 +98,6 @@ public class SudokuController implements Initializable {
 	private void btnEndGame(ActionEvent event) {
 		System.exit(0);
 	}
-
-//	@FXML
-//	private void zerosRemaining() {
-//		if (s.ContainsZero()== false) {
-//			
-//		}
-//	}
 	 
 	/**
 	 * CreateSudokuInstance - Create an instance of Sudoku, set the attribute in the 'Game' class
@@ -327,6 +319,7 @@ public class SudokuController implements Initializable {
 					}
 				});
 
+				
 				paneTarget.setOnDragDropped(new EventHandler<DragEvent>() {
 					public void handle(DragEvent event) {
 						Dragboard db = event.getDragboard();
@@ -349,14 +342,30 @@ public class SudokuController implements Initializable {
 							if (!s.isValidValue(CellTo.getiRow(), CellTo.getiCol(), CellFrom.getiCellValue())) {
 								s.AddMistake();
 								if (s.getMistakes() >= eGameDifficulty.MaxMistakes) {
-									
+									s.GameOver();
+									/**
+									 * i know this works now need to add screen that says lost game!
+									 */
 								}
+								
 								/** under this want to say they if solved the puzzle or not because no longer any empty spaces
 								 * 
 								 */
 								else if (s.ContainsZero()==false) {
+									if (s.isSudoku()) {
+										/**
+										 * this is where I want to call the popup window saying lost
+										 */
+									}
 									
+									else if (!s.isSudoku()) {
+										s.GameOver();
+										/** 
+										 * I want to say that not sudoku and start new game
+										 */
+									}
 								}
+								
 								if (game.getShowHints()) {
 									//TODO: This is where I want to keep track of how many zeroes remain in the puzzle
 									//once the number of zeros is zero, the puzzle is either solved or not
@@ -364,7 +373,7 @@ public class SudokuController implements Initializable {
 									
 								}
 							}
-
+							
 							//	This is the code that is actually taking the cell value from the drag-from 
 							//	cell and dropping a new Image into the dragged-to cell
 							ImageView iv = new ImageView(GetImage(CellFrom.getiCellValue()));

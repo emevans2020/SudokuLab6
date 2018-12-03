@@ -112,7 +112,4 @@ public class Game extends Application {
 
 		return this.sudoku;
 	}
-
- 
-
 }
