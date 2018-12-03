@@ -340,9 +340,9 @@ public class SudokuController implements Initializable {
 						//		write a getter so you can the value
 						//		Might even have a max mistake attribute in eGameDifficulty (easy has 2 mistakes, medium 4, etc)
 						//		If the number of mistakes >= max mistakes, end the game	
-//						 keep track of the mistakes in the sudoku game, and end the game if either 
-//						 they passed the threshold of mistakes... or they solve the puzzle.  
-//	
+						// keep track of the mistakes in the sudoku game, and end the game if either 
+						//they passed the threshold of mistakes... or they solve the puzzle. 
+						
 						if (db.hasContent(myFormat)) {
 							Cell CellFrom = (Cell) db.getContent(myFormat);
 					
