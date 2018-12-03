@@ -100,12 +100,12 @@ public class SudokuController implements Initializable {
 		System.exit(0);
 	}
 
-	@FXML
-	private void zerosRemaining() {
-		if (s.ContainsZero()== false) {
-			
-		}
-	}
+//	@FXML
+//	private void zerosRemaining() {
+//		if (s.ContainsZero()== false) {
+//			
+//		}
+//	}
 	 
 	/**
 	 * CreateSudokuInstance - Create an instance of Sudoku, set the attribute in the 'Game' class
@@ -120,7 +120,7 @@ public class SudokuController implements Initializable {
 	}
 
 	/**
-	 * BuildGrid - This method will bild all the grid objects (top/sudoku/numbers)
+	 * BuildGrid - This method will build all the grid objects (top/sudoku/numbers)
 	 * 
 	 * @version 1.5
 	 * @since Lab #5
@@ -149,7 +149,8 @@ public class SudokuController implements Initializable {
 	}
 
 	/**
-	 * BuildTopGrid - This is the grid at the top of the scene.  I'd stash 'difficulty', {@link #btnStartGame(ActionEvent)}of mistakes, etc
+	 * BuildTopGrid - This is the grid at the top of the scene.  I'd stash 'difficulty', 
+	 * {@link #btnStartGame(ActionEvent)}of mistakes, etc
 	 * 
 	 * @version 1.5
 	 * @since Lab #5
