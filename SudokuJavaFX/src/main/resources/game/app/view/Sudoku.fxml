@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.TextFlow?>
 
 <BorderPane stylesheets="@GameTheme2.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.SudokuController">
    <bottom>
@@ -36,10 +37,15 @@
       <SplitPane dividerPositions="0.6106870229007634" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
          <items>
             <HBox fx:id="hboxGrid" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-            <HBox fx:id="hboxNumbers" alignment="CENTER" prefHeight="48.0" prefWidth="471.0">
-               <opaqueInsets>
-                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-               </opaqueInsets></HBox>
+            <TextFlow>
+               <children>
+                  <HBox fx:id="hboxNumbers" alignment="CENTER" prefHeight="48.0" prefWidth="471.0">
+                     <opaqueInsets>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </opaqueInsets>
+                  </HBox>
+               </children>
+            </TextFlow>
          </items>
       </SplitPane>
    </center>
