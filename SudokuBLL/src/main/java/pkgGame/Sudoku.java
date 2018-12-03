@@ -183,8 +183,9 @@ public class Sudoku extends LatinSquare implements Serializable {
 		return false;
 	}
 	
-	public void AddMistake() {
+	public int AddMistake() {
 		this.mistakes += 1;
+		return this.mistakes;
 	}
 	
 	
