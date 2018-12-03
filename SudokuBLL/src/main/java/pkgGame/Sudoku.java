@@ -186,7 +186,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 	public void AddMistake() {
 		this.mistakes += 1;
 	}
-
+	
 	
 	/**
 	 * getiSize - the UI needs to know the size of the puzzle

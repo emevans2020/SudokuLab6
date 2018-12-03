@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javax.swing.plaf.synth.SynthSplitPaneUI;
+
 import app.Game;
 import app.helper.SudokuCell;
 import app.helper.SudokuStyler;
@@ -41,6 +43,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import pkgEnum.eGameDifficulty;
 import pkgEnum.ePuzzleViolation;
 import pkgGame.Cell;
@@ -97,6 +100,13 @@ public class SudokuController implements Initializable {
 		System.exit(0);
 	}
 
+	@FXML
+	private void zerosRemaining() {
+		if (s.ContainsZero()== false) {
+			
+		}
+	}
+	 
 	/**
 	 * CreateSudokuInstance - Create an instance of Sudoku, set the attribute in the 'Game' class
 	 * 
@@ -335,14 +345,14 @@ public class SudokuController implements Initializable {
 					
 							if (!s.isValidValue(CellTo.getiRow(), CellTo.getiCol(), CellFrom.getiCellValue())) {
 								s.AddMistake();
-								if (s.getMistakes() >= eGameDifficulty.MaxMistakes) {
-									
+								if (s.getMistakes() == eGameDifficulty.MaxMistakes) {
 									
 								}
 								if (game.getShowHints()) {
 									//TODO: This is where I want to keep track of how many zeroes remain in the puzzle
 									//once the number of zeros is zero, the puzzle is either solved or not
 									//show a message if puzzle is solved
+									
 								}
 							}
 
