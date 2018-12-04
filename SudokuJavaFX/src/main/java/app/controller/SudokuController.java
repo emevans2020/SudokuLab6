@@ -351,29 +351,29 @@ public class SudokuController implements Initializable {
 									alert.showAndWait();
 								}
 								
-								/** under this want to say they if solved the puzzle or not because no longer any empty spaces
-								 * 
-								 */
-								else if (s.ContainsZero()==false) {
-									if (s.isSudoku()) {
-										/**
-										 * this is where I want to call the popup window saying lost
-										 */
-									}
-									
-									else if (!s.isSudoku()) {
-										
-										/** 
-										 * I want to say that not sudoku and start new game
-										 */
-									}
-								}
-								
 								if (game.getShowHints()) {
 									//TODO: This is where I want to keep track of how many zeroes remain in the puzzle
 									//once the number of zeros is zero, the puzzle is either solved or not
 									//show a message if puzzle is solved
 									
+								}
+							}
+							
+							if (s.remainingZeros()==0) {
+								if (s.isSudoku()) {
+									Alert alert = new Alert(null);
+									alert.setTitle("Congratulations");
+									alert.setHeaderText("You Won");
+									alert.setContentText("You're a sudoku genius");
+									alert.showAndWait();
+								}
+								
+								else if (!s.isSudoku()) {
+									Alert alert = new Alert(null);
+									alert.setTitle("Too Bad!");
+									alert.setHeaderText("You Lose");
+									alert.setContentText("Try again!");
+									alert.showAndWait();
 								}
 							}
 							

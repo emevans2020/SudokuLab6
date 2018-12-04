@@ -211,7 +211,7 @@ public class Sudoku extends LatinSquare implements Serializable {
 		int zeros = 0;
 		for (int iRow = 0; iRow < iSize; iRow++) {
 			for (int iCol = 0; iCol < iSize; iCol++) {
-				if (pkgGame.Cell.getiCellValue()==0) {
+				if (this.getPuzzle()[iRow][iCol] == 0) {
 					zeros++;
 				}
 			}
