@@ -19,6 +19,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
@@ -343,9 +344,11 @@ public class SudokuController implements Initializable {
 								s.AddMistake();
 								if (s.getMistakes() >= eGameDifficulty.MaxMistakes) {
 									s.GameOver();
-									/**
-									 * i know this works now need to add screen that says lost game!
-									 */
+									Alert alert = new Alert(null);
+									alert.setTitle("Too Bad!");
+									alert.setHeaderText("You Lose");
+									alert.setContentText("Try again!");
+									alert.showAndWait();
 								}
 								
 								/** under this want to say they if solved the puzzle or not because no longer any empty spaces
@@ -359,7 +362,7 @@ public class SudokuController implements Initializable {
 									}
 									
 									else if (!s.isSudoku()) {
-										s.GameOver();
+										
 										/** 
 										 * I want to say that not sudoku and start new game
 										 */
