@@ -206,7 +206,18 @@ public class Sudoku extends LatinSquare implements Serializable {
 			System.out.println("Press 'Start Over' to try again");
 		} 
 	}
-
+	
+	public int remainingZeros() {
+		int zeros = 0;
+		for (int iRow = 0; iRow < iSize; iRow++) {
+			for (int iCol = 0; iCol < iSize; iCol++) {
+				if (pkgGame.Cell.getiCellValue()==0) {
+					zeros++;
+				}
+			}
+		}
+		return zeros;
+	}
 	/**
 	 * getiSize - the UI needs to know the size of the puzzle
 	 *
