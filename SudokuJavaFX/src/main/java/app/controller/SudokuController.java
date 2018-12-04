@@ -20,6 +20,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.Label;
@@ -340,11 +341,11 @@ public class SudokuController implements Initializable {
 						if (db.hasContent(myFormat)) {
 							Cell CellFrom = (Cell) db.getContent(myFormat);
 					
-							if (!s.isValidValue(CellTo.getiRow(), CellTo.getiCol(), CellFrom.getiCellValue())) {
+							if (s.isValidValue(CellTo.getiRow(), CellTo.getiCol(), CellFrom.getiCellValue())==false) {
 								s.AddMistake();
 								if (s.getMistakes() >= eGameDifficulty.MaxMistakes) {
 									s.GameOver();
-									Alert alert = new Alert(null);
+									Alert alert = new Alert(AlertType.INFORMATION);
 									alert.setTitle("Too Bad!");
 									alert.setHeaderText("You Lose");
 									alert.setContentText("Try again!");
@@ -352,23 +353,20 @@ public class SudokuController implements Initializable {
 								}
 								
 								if (game.getShowHints()) {
-									//TODO: This is where I want to keep track of how many zeroes remain in the puzzle
-									//once the number of zeros is zero, the puzzle is either solved or not
-									//show a message if puzzle is solved
 									
 								}
 							}
 							
 							if (s.remainingZeros()==0) {
-								if (s.isSudoku()) {
-									Alert alert = new Alert(null);
+								if (s.isSudoku()==true) {
+									Alert alert = new Alert(AlertType.INFORMATION);
 									alert.setTitle("Congratulations");
 									alert.setHeaderText("You Won");
 									alert.setContentText("You're a sudoku genius");
 									alert.showAndWait();
 								}
 								
-								else if (!s.isSudoku()) {
+								else if (s.isSudoku()==false) {
 									Alert alert = new Alert(null);
 									alert.setTitle("Too Bad!");
 									alert.setHeaderText("You Lose");
@@ -386,6 +384,7 @@ public class SudokuController implements Initializable {
 							System.out.println(CellFrom.getiCellValue());
 							success = true;
 						}
+						
 						event.setDropCompleted(success);
 						event.consume();
 					}
